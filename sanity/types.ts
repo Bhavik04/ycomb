@@ -133,11 +133,11 @@ export type Startup = {
   _rev: string;
   title?: string;
   slug?: Slug;
-  auther?: {
+  author?: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "auther";
+    [internalGroqTypeReferenceTo]?: "author";
   };
   views?: number;
   description?: string;
@@ -152,9 +152,9 @@ export type Slug = {
   source?: string;
 };
 
-export type Auther = {
+export type Author = {
   _id: string;
-  _type: "auther";
+  _type: "author";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -168,14 +168,14 @@ export type Auther = {
 
 export type Markdown = string;
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | SanityAssetSourceData | Startup | Slug | Auther | Markdown;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | SanityAssetSourceData | Startup | Slug | Author | Markdown;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/query.ts
 // Variable: STARTUPS_QUERY
-// Query: *[_type=="startup" && defined(slug.current)] | order(_createdAt desc){  title,    auther -> {      _id,name,image,bio    },    slug,    views,    _createdAt,    _id,    description,    image,    category,    pitch}
+// Query: *[_type=="startup" && defined(slug.current)] | order(_createdAt desc){  title,    author -> {      _id,name,image,bio    },    slug,    views,    _createdAt,    _id,    description,    image,    category,    pitch}
 export type STARTUPS_QUERYResult = Array<{
   title: string | null;
-  auther: {
+  author: {
     _id: string;
     name: string | null;
     image: string | null;
@@ -195,6 +195,6 @@ export type STARTUPS_QUERYResult = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type==\"startup\" && defined(slug.current)] | order(_createdAt desc){\n  title,\n    auther -> {\n      _id,name,image,bio\n    },\n    slug,\n    views,\n    _createdAt,\n    _id,\n    description,\n    image,\n    category,\n    pitch\n}": STARTUPS_QUERYResult;
+    "*[_type==\"startup\" && defined(slug.current)] | order(_createdAt desc){\n  title,\n    author -> {\n      _id,name,image,bio\n    },\n    slug,\n    views,\n    _createdAt,\n    _id,\n    description,\n    image,\n    category,\n    pitch\n}": STARTUPS_QUERYResult;
   }
 }

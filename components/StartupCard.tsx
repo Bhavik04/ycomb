@@ -4,12 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { EyeIcon } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
-import { Auther, Startup } from '@/sanity/types'
+import { Author, Startup } from '@/sanity/types'
 
 // export interface StartupTypeCard {
 //     _id: number,
 //     _createdAt: Date
-//     auther: {
+//     author: {
 //         name: string,
 //         id: number
 //     }
@@ -20,10 +20,11 @@ import { Auther, Startup } from '@/sanity/types'
 //     views:number
 // }
 
-export type StartupTypeCard =Omit<Startup,'auther'> & {auther:Auther,}
+export type StartupTypeCard =Omit<Startup,'author'> & {author:Author,}
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
-    const { _id, _createdAt, auther:{name,_id:autherId}, description, image, category, title, views } = post
+    const { _id, _createdAt, author, description, image, category, title, views } = post
+    console.log('author name'+author)
     return (
         <li className="startup-card group">
       <div className="flex-between">
@@ -36,17 +37,17 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
 
       <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-          <Link href={`/user/${autherId}`}>
-            <p className="text-16-medium line-clamp-1">{name}</p>
+          <Link href={`/user/${author?._id}`}>
+            <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
           <Link href={`/startup/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`/user/${autherId}`}>
+        <Link href={`/user/${author?._id}`}>
           <Image
             src={image!}
-            alt={name!}
+            alt={author?.name!}
             width={48}
             height={48}
             className="rounded-full"

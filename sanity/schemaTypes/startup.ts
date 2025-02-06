@@ -17,9 +17,9 @@ export const startup = defineType({
       }
     }),
     defineField({
-      name: 'auther',
+      name: 'author',
       type: 'reference',
-      to:{type:'auther'}
+      to:{type:'author'}
     }),
     defineField({
       name: 'views',
