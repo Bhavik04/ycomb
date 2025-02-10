@@ -7,6 +7,7 @@ const SearchForm = ({query}:{query?:string}) => {
   return (
     <form action="/" className="search-form">
         <input 
+        key={query}
         name='query'
         defaultValue={query}
         placeholder='search'

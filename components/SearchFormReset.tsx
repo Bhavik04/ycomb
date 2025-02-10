@@ -4,7 +4,6 @@ import React from 'react'
 
 const SearchFormReset = () => {
     const reset=() => {
-        console.log('reset')
     const form=document.querySelector('.search-form') as HTMLFormElement;
     if(form) form.reset()
     }

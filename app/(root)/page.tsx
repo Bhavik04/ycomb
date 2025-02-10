@@ -4,6 +4,7 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { client } from "@/sanity/lib/client";
 import { STARTUPS_QUERY } from "@/sanity/lib/query";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ query?: string }> }) {
 
@@ -11,26 +12,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
   const params={search:query || null}
 
+  const session= await auth();
+  console.log(session?.id)
+
 const {data:posts} = await sanityFetch({query:STARTUPS_QUERY,params});
-// const posts = await client.fetch(STARTUPS_QUERY);
-
-  console.log(JSON.stringify(posts,null,2));
-
-  // const posts = [
-  //   {
-  //     _id: 1,
-  //     _createdAt: new Date(),
-  //     author: {
-  //       name: 'Bhavik',
-  //       id: 1
-  //     },
-  //     description: 'description hai',
-  //     image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapers.com%2Fsuper-cool-pictures&psig=AOvVaw011heqUGuODwcexAIGLd9m&ust=1738812542502000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIjvm9HLq4sDFQAAAAAdAAAAABAE",
-  //     category: 'this is category',
-  //     title: 'Tittle',
-  //     views: 32
-  //   }
-  // ]
 
   return (
     <>
