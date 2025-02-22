@@ -3,6 +3,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 **env_Varialbles:**
 
+```
 AUTH_SECRET="" # Added by `npx auth`. Read more: https://cli.authjs.devAUTH_SECRET="changeMe"
  
 AUTH_GITHUB_ID=""
@@ -11,6 +12,7 @@ AUTH_GITHUB_SECRET=""
 NEXT_PUBLIC_SANITY_PROJECT_ID=""
 NEXT_PUBLIC_SANITY_DATASET=""
 SANITY_WRITE_TOKEN=""
+```
 
 
 ## Getting Started
