@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 
-**env_Varialbles:**
+**env_Variables:**
 
 ```
 AUTH_SECRET="" # Added by `npx auth`. Read more: https://cli.authjs.devAUTH_SECRET="changeMe"
